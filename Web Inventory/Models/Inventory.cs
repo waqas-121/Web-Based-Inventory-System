@@ -18,9 +18,9 @@ namespace Web_Inventory.Models
 		public int TotalPrice { get; set; }
 
 
-		public void CalculateTotalPrice()
+		public int CalculateTotalPrice(int Quantity, int Price)
 		{
-			TotalPrice = Quantity * Price;
+			return Quantity * Price;
 		}
 	}
 

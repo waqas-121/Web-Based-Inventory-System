@@ -1,0 +1,73 @@
+﻿@model List<Inventory>
+
+
+<div class="container">
+	<div class="row pt-4 pb-3">
+		<div class="col-6 text-primary">
+			<h2 >Item List</h2>
+		</div>
+		<div class="col-6 text-end">
+			<a asp-action="Create" asp-controller="Inventory" class="btn btn-primary">
+
+				<i class="bi bi-plus-circle"></i> Add New Item
+			</a>
+		</div>
+	</div>
+</div>
+
+<table class="table table-bordered table-striped">
+	<thead>
+
+		<tr>
+			<th>
+				Product Name
+			</th>
+			<th>
+				Quantity
+			</th>
+
+
+
+		</tr>
+	</thead>
+
+	<tbody>
+	@* 	@if (Model != null)
+		{
+			@foreach (var obj in Model.OrderBy(u => u.Id))
+			{
+				// Render inventory items
+			}
+		}
+		else
+		{
+			<p>No inventory items available.</p>
+		} *@
+
+		@foreach (var obj in Model.OrderBy(u=>u.Id))
+		{
+			<tr>
+
+				<td>
+					@obj.ProductName
+				</td>
+				<td>
+					@obj.Quantity
+				</td>
+				<td>
+					<div class="w-100 btnbtn-group" role="group">
+						<a asp-action="Retrive" asp-controller="Inventory" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+								View
+						</a>
+						<a asp-action="Delete" asp-controller="Inventory" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+							<i class="bi bi-trash-fill">
+								Delete
+							</i>
+						</a>
+
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
