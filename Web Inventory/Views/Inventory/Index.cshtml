@@ -55,8 +55,9 @@
 					@obj.Quantity
 				</td>
 				<td>
-					<div class="w-100 btnbtn-group" role="group">
+					<div class="w-100 btn btn-group" role="group">
 						<a asp-action="Retrive" asp-controller="Inventory" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+							<i class="bi bi-eye"></i>
 								View
 						</a>
 						<a asp-action="Delete" asp-controller="Inventory" asp-route-id="@obj.Id" class="btn btn-danger mx-2">

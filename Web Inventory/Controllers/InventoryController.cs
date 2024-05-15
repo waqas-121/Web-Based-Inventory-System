@@ -17,6 +17,25 @@ namespace Web_Inventory.Controllers
 			return View(inventoriesObj);
 		}
 
+		public IActionResult Create()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public IActionResult Create(Inventory obj)
+		{
+			if (ModelState.IsValid)
+			{
+				obj.TotalPrice = obj.CalculateTotalPrice(obj.Price, obj.Quantity);
+				_db.inventories.Add(obj);
+				_db.SaveChanges();
+				//TempData["success"] = "Category updated successfully";
+				return RedirectToAction("Index");
+			}
+			return View();
+		}
+
 		public IActionResult Retrive(int? Id)
 		{
 			if (Id == null || Id == 0)

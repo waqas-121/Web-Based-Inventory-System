@@ -15,6 +15,7 @@ namespace Web_Inventory.Models
 		[Required]
 		public int Price { get; set; }
 		[Required]
+
 		public int TotalPrice { get; set; }
 
 
